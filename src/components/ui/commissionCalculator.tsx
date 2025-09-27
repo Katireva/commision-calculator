@@ -20,16 +20,9 @@ function calculateCommission(revenue: number) {
   for (const t of tiers) {
     const upper = t.max ?? revenue;
 
-    console.info("upper = ", upper);
-
     if (revenue > t.min) {
       const taxable = Math.min(revenue, upper) - t.min;
-
-      console.info("taxable = ", taxable);
-
       const earned = taxable * t.rate;
-
-      console.info("earned = ", earned);
 
       total += earned;
       breakdown.push({
